@@ -1,4 +1,10 @@
-name: Build Android APK
+      - name: Build debug APK
+        run: |
+          cd "$PROJECT_DIR"
+          echo "android.useAndroidX=true" > gradle.properties
+          echo "android.enableJetifier=true" >> gradle.properties
+          gradle assembleDebug --no-daemon
+          
 
 on:
   push:
